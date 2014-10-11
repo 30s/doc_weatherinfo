@@ -1,47 +1,31 @@
 FORMAT: 1A
-HOST: http://www.google.com
+HOST: http://data.iotsdk.com
 
-# WeatherInfo
-Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+# WeatherInfo API
 
-# Group Notes
-Notes related resources of the **Notes API**
-
-## Notes Collection [/notes]
-### List all Notes [GET]
-+ Response 200 (application/json)
-
-        [{
-          "id": 1, "title": "Jogging in park"
-        }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
-
-### Create a Note [POST]
-+ Request (application/json)
-
-        { "title": "Buy cheese and bread for breakfast." }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
+## Weather Info [/1/wether_info{?y,m,d,city}]
 
 + Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+    + y (required, int, `2014`) ... year
+    + m (required, int, `10`) ... month
+    + d (optional, int, `11`) ... day
+    + city (required, string, `广州`)
 
-### Retrieve a Note [GET]
-+ Response 200 (application/json)
++ Request (application/json)
 
     + Header
-
-            X-My-Header: The Value
+    
+            X-XPG-Application-Id: 174a4e23dfd14ec888785f0e976c0ed4
+            X-XPG-REST-API-Key: 282cac41dece4625b640bb07006e29c8
+            Content-Type: application/json
 
     + Body
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
+            {}
 
-### Remove a Note [DELETE]
-+ Response 204
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+            }
